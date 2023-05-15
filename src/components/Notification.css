@@ -1,0 +1,18 @@
+.outer {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    border: 1px solid rgb(29, 18, 18);
+    align-items: center;
+    width: 20vw;
+    height: 5vh;
+    margin-left: 100px;
+  }
+  
+.message {
+   
+}
+/* .close {
+    display: inline-block;
+  } */
+  
