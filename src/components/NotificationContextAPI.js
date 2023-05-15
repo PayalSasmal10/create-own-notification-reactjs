@@ -1,25 +1,25 @@
-import { Children, createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const contextApi = createContext();
 
 export const NotificationContextAPI = ({ children }) => {
-  const [notification, setNotification] = useState([]);
+  const [notifications, setNotifications] = useState([]);
 
   const addNotification = (message) => {
     let timeStamp = Date.now();
-    setNotification((prvNotification) => [...prvNotification, { id: timeStamp, message }]);
+    setNotifications((prvNotification) => [...prvNotification, { id: timeStamp, message }]);
   };
 
   const removeNotification = (id) => {
     setTimeout(() => {
-      setNotification((prvNotification) =>
+      setNotifications((prvNotification) =>
         prvNotification.filter((notification) => notification.id !== id)
       );
     }, 5000);
   };
 
   return (
-    <contextApi.Provider value={{ notification, addNotification, removeNotification }}>
+    <contextApi.Provider value={{ notifications, addNotification, removeNotification }}>
       {children}
     </contextApi.Provider>
   );

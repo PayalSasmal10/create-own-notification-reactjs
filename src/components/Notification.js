@@ -1,19 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Notification.css";
+import { contextApi } from "./NotificationContextAPI";
 
-const Notification = ({ setNotificationSent }) => {
-  const closeButtonHandler = () => {
-    setNotificationSent(false);
-  };
+const Notification = () => {
+  const { notification, removeNotification } = useContext(contextApi);
 
+//   const closeButtonHandler = () => {
+//     setNotificationSent(false);
+//   };
+    console.log(notification);
+    console.log(removeNotification);
   return (
     <div className="outer">
-      <div className="message">
-        <p>Notification sent</p>
-      </div>
-      <div className="close">
-        <button onClick={closeButtonHandler}>X</button>
-      </div>
+      {notification.map((notification) => (
+        <div key={notification.id} className="message">
+          <span>{notification.message}</span>
+          <button onClick={() => removeNotification(notification.id)}>X</button>
+        </div>
+      ))}
     </div>
   );
 };
