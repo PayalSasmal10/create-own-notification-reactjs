@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import Notification from "./components/Notification";
+import NotificationContextAPI from "./components/NotificationContextAPI";
 
 export default function App() {
   const [notificationsent, setNotificationSent] = useState(false);
@@ -13,6 +14,9 @@ export default function App() {
   };
   return (
     <div className="App">
+      <NotificationContextAPI>
+        
+      </NotificationContextAPI>
       <button onClick={notificationHandler}>Click</button>
       {notificationsent && (
         <Notification setNotificationSent={setNotificationSent} />
