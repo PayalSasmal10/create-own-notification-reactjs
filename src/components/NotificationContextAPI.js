@@ -7,7 +7,9 @@ export const NotificationContextAPI = ({ children }) => {
 
   const addNotification = (message) => {
     let timeStamp = Date.now();
+    console.log("timeStamp", timeStamp);
     setNotifications((prvNotification) => [...prvNotification, { id: timeStamp, message }]);
+    // console.log(notifications);
   };
 
   const removeNotification = (id) => {
